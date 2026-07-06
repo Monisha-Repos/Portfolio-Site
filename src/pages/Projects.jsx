@@ -4,19 +4,19 @@ function Projects() {
             title: 'Cadence',
             description:
                 'A personalCadence is a smart calendar and time‑management assistant that uses AI to organize tasks, optimize schedules, and help users maintain consistent daily rhythm. portfolio built with React and Vite to showcase my projects, skills, and contact information.',
-            tech: ['React', 'Vite', 'CSS'],
+            tech: ['React ', 'Vite ', 'CSS '],
         },
         {
             title: 'Weather App',
             description:
                 'A simple web app that displays weather data using an external API and a clean responsive interface.',
-            tech: ['JavaScript', 'API', 'CSS'],
+            tech: ['JavaScript ', 'API ', 'CSS '],
         },
         {
             title: 'Task Manager',
             description:
                 'A productivity app concept for creating, organizing, and tracking tasks with a straightforward user experience.',
-            tech: ['React', 'State', 'UI Design'],
+            tech: ['React ', 'State ', 'UI Design '],
         },
     ]
 
