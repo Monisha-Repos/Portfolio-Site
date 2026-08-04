@@ -1,25 +1,43 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar.jsx'
-import Home from './pages/Home.jsx'
-import Projects from './pages/Projects.jsx'
-// import Skills from './pages/Skills.jsx'
-import Connect from './pages/Connect.jsx'
-// import './App.css'
+import SocialRail from './components/SocialRail.jsx'
+import Hero from './components/Hero.jsx'
+import About from './components/About.jsx'
+import Projects from './components/Projects.jsx'
+import Skills from './components/Skills.jsx'
+import Connect from './components/Connect.jsx'
+import useReveal from './hooks/useReveal.js'
 
 function App() {
-    const [currentPage, setCurrentPage] = useState('home')
+    useReveal()
+    const [progress, setProgress] = useState(0)
+
+    useEffect(() => {
+        const onScroll = () => {
+            const h = document.documentElement
+            const max = h.scrollHeight - h.clientHeight
+            setProgress(max > 0 ? (h.scrollTop / max) * 100 : 0)
+        }
+        onScroll()
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
 
     return (
         <div className="app">
-            <Navbar
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-            />
+            <div className="scroll-progress" style={{ transform: `scaleX(${progress / 100})` }} />
+            <div className="bg-aurora" aria-hidden="true" />
 
-            {currentPage === 'home' && <Home />}
-            {currentPage === 'projects' && <Projects />}
-            {currentPage === 'skills' && <h4>Page Under Construction</h4>}
-            {currentPage === 'connect' && <Connect />}
+            <Navbar />
+            <SocialRail />
+
+            <main>
+                <Hero />
+                <About />
+                <Projects />
+                <Skills />
+                <Connect />
+            </main>
         </div>
     )
 }
