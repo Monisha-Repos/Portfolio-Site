@@ -10,9 +10,9 @@ function About() {
             <div className="about-grid">
                 <div className="about-copy" data-reveal>
                     <p className="lead">
-                        I&apos;m a computer science student focused on front-end
-                        engineering — turning ideas into interfaces that feel fast,
-                        clear, and considered.
+                        I&apos;m a computer science student focused on full-stack
+                        engineering — turning ideas into products that feel fast,
+                        clear, and considered, from interface to backend.
                     </p>
                     <p>
                         My work spans building responsive React applications,
@@ -30,7 +30,7 @@ function About() {
                 <ul className="about-facts" data-reveal>
                     <li>
                         <span className="fact-k">Focus</span>
-                        <span className="fact-v">Front-end &amp; UI Engineering</span>
+                        <span className="fact-v">Full-Stack Engineering</span>
                     </li>
                     <li>
                         <span className="fact-k">Currently</span>

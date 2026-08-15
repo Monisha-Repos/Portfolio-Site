@@ -699,7 +699,7 @@ main {
 /* ---------- Skills ---------- */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 20px;
 }
 
@@ -766,6 +766,54 @@ main {
     max-width: 26rem;
     margin-bottom: 28px;
     font-size: 1.05rem;
+}
+
+/* Availability clock (working-time status) */
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.avail-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--ink-3);
+    flex-shrink: 0;
+}
+
+.availability.is-on .avail-dot {
+    background: #2fae66;
+    animation: ping 2.4s var(--ease) infinite;
+}
+
+@keyframes ping {
+    0% { box-shadow: 0 0 0 0 rgba(47, 174, 102, 0.5); }
+    70%, 100% { box-shadow: 0 0 0 7px rgba(47, 174, 102, 0); }
+}
+
+.avail-status {
+    color: var(--ink);
+}
+
+.availability.is-off .avail-status {
+    color: var(--ink-2);
+}
+
+.avail-time {
+    color: var(--ink-3);
+    padding-left: 10px;
+    border-left: 1px solid var(--line);
+    font-variant-numeric: tabular-nums;
 }
 
 .connect-links {

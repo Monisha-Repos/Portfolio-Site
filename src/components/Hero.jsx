@@ -14,7 +14,7 @@ function Hero() {
             <div className="hero-inner">
                 <div className="hero-copy">
                     <p className="eyebrow" data-reveal>
-                        Computer Science · Front-end Developer
+                        Computer Science · Full-Stack Developer
                     </p>
 
                     <h1 className="hero-title" data-reveal>
@@ -24,7 +24,7 @@ function Hero() {
                     </h1>
 
                     <p className="hero-lead" data-reveal>
-                        I build modern front-end applications — exploring cloud
+                        I build modern full-stack applications — exploring cloud
                         deployment workflows and shipping projects that emphasize
                         clarity, performance, and clean engineering.
                     </p>

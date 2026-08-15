@@ -1,4 +1,5 @@
 import socials from '../data/socials.js'
+import Availability from './Availability.jsx'
 import { LinkedInIcon, GitHubIcon, MailIcon, ArrowIcon } from './Icons.jsx'
 
 function Connect() {
@@ -30,6 +31,8 @@ function Connect() {
                     <a className="btn btn-primary" href={`mailto:${socials.email}`}>
                         Say hello
                     </a>
+
+                    <Availability />
                 </div>
 
                 <ul className="connect-links" data-reveal>

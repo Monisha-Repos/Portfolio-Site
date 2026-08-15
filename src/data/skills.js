@@ -4,6 +4,10 @@ const skills = [
         items: ['React', 'JavaScript (ES2023)', 'HTML5', 'CSS3', 'Responsive UI'],
     },
     {
+        group: 'Backend & Data',
+        items: ['SQL', 'Relational databases', 'REST APIs'],
+    },
+    {
         group: 'Tooling',
         items: ['Vite', 'Git & GitHub', 'ESLint', 'npm'],
     },

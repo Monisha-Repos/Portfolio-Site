@@ -1,26 +1,26 @@
 const projects = [
     {
         title: 'Cadence',
-        year: '2025',
+        year: '2026',
         description:
             'A smart calendar and time-management assistant that uses AI to organize tasks, optimize schedules, and help users maintain a consistent daily rhythm.',
         tech: ['React', 'AI', 'Vite'],
         link: '',
     },
     {
-        title: 'Weather App',
+        title: 'FlashFlare',
         year: '2024',
         description:
-            'A responsive web app that pulls live conditions from an external API and presents them through a clean, readable interface.',
-        tech: ['JavaScript', 'REST API', 'CSS'],
+            'A flashcard web app for building study decks and drilling them through a fast, keyboard-friendly review flow.',
+        tech: ['React', 'LocalStorage', 'CSS'],
         link: '',
     },
     {
-        title: 'Task Manager',
-        year: '2024',
+        title: 'Markdown to HTML Converter',
+        year: '2026',
         description:
-            'A productivity app for creating, organizing, and tracking tasks with a straightforward, focused user experience.',
-        tech: ['React', 'State', 'UI Design'],
+            'A tool that parses Markdown and renders it to clean, semantic HTML in real time with a live side-by-side preview.',
+        tech: ['JavaScript', 'Parsing', 'CSS'],
         link: '',
     },
 ]
