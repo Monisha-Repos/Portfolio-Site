@@ -6,7 +6,7 @@ function ContactForm() {
 
     if (state.succeeded) {
         return (
-            <div className="contact-form contact-success" data-reveal role="status">
+            <div className="contact-form contact-success" role="status">
                 <div className="success-badge" aria-hidden="true">✓</div>
                 <h3>Message sent — thank you!</h3>
                 <p>
