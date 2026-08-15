@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 const TIME_ZONE = 'America/New_York' // US Eastern (Tampa) — handles EDT/EST + DST
 const WORK_START = 9 // 9am
 const WORK_END = 21 // 9pm
-const LOCATION = 'Tampa'
+const LOCATION = 'Eastern Time (US)'
 
 /**
  * Returns the current time in Monisha's timezone plus whether it currently

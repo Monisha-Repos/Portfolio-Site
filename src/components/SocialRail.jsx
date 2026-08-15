@@ -3,20 +3,26 @@ import { LinkedInIcon, GitHubIcon, MailIcon } from './Icons.jsx'
 
 function SocialRail() {
     const links = [
-        { label: 'LinkedIn', href: socials.linkedin, Icon: LinkedInIcon },
-        { label: 'GitHub', href: socials.github, Icon: GitHubIcon },
-        { label: 'Email', href: `mailto:${socials.email}`, Icon: MailIcon },
+        { label: 'LinkedIn', href: socials.linkedin, Icon: LinkedInIcon, external: true },
+        { label: 'GitHub', href: socials.github, Icon: GitHubIcon, external: true },
+        { label: 'Contact form', href: '#connect', Icon: MailIcon, external: false },
     ]
+
+    const jumpToConnect = (e) => {
+        e.preventDefault()
+        document.getElementById('connect')?.scrollIntoView({ behavior: 'smooth' })
+    }
 
     return (
         <aside className="social-rail" aria-label="Social links">
             <ul>
-                {links.map(({ label, href, Icon }) => (
+                {links.map(({ label, href, Icon, external }) => (
                     <li key={label}>
                         <a
                             href={href}
-                            target={href.startsWith('mailto:') ? undefined : '_blank'}
-                            rel="noreferrer"
+                            target={external ? '_blank' : undefined}
+                            rel={external ? 'noreferrer' : undefined}
+                            onClick={external ? undefined : jumpToConnect}
                             aria-label={label}
                         >
                             <Icon className="rail-icon" />

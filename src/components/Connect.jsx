@@ -1,12 +1,12 @@
 import socials from '../data/socials.js'
 import Availability from './Availability.jsx'
-import { LinkedInIcon, GitHubIcon, MailIcon, ArrowIcon } from './Icons.jsx'
+import ContactForm from './ContactForm.jsx'
+import { LinkedInIcon, GitHubIcon } from './Icons.jsx'
 
 function Connect() {
-    const links = [
-        { label: 'LinkedIn', href: socials.linkedin, Icon: LinkedInIcon, handle: '/monisha-natarajan' },
-        { label: 'GitHub', href: socials.github, Icon: GitHubIcon, handle: '@Monisha-Repos' },
-        { label: 'Email', href: `mailto:${socials.email}`, Icon: MailIcon, handle: socials.email },
+    const socialLinks = [
+        { label: 'LinkedIn', href: socials.linkedin, Icon: LinkedInIcon },
+        { label: 'GitHub', href: socials.github, Icon: GitHubIcon },
     ]
 
     return (
@@ -26,31 +26,24 @@ function Connect() {
                     </p>
                     <p className="connect-sub">
                         I&apos;m open to internships, collaborations, and a good
-                        conversation. The fastest way to reach me is email.
+                        conversation. Drop me a note and I&apos;ll get back to you.
                     </p>
-                    <a className="btn btn-primary" href={`mailto:${socials.email}`}>
-                        Say hello
-                    </a>
 
                     <Availability />
+
+                    <ul className="connect-socials">
+                        {socialLinks.map(({ label, href, Icon }) => (
+                            <li key={label}>
+                                <a href={href} target="_blank" rel="noreferrer">
+                                    <Icon className="connect-icon" />
+                                    <span>{label}</span>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
-                <ul className="connect-links" data-reveal>
-                    {links.map(({ label, href, Icon, handle }) => (
-                        <li key={label}>
-                            <a
-                                href={href}
-                                target={href.startsWith('mailto:') ? undefined : '_blank'}
-                                rel="noreferrer"
-                            >
-                                <Icon className="connect-icon" />
-                                <span className="connect-label">{label}</span>
-                                <span className="connect-handle">{handle}</span>
-                                <ArrowIcon className="connect-arrow" />
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                <ContactForm />
             </div>
 
             <footer className="site-footer">

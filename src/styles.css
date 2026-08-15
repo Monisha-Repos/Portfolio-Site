@@ -750,7 +750,7 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 44px;
-    align-items: center;
+    align-items: start;
 }
 
 .connect-big {
@@ -816,62 +816,244 @@ main {
     font-variant-numeric: tabular-nums;
 }
 
-.connect-links {
+/* Compact social links under the copy */
+.connect-socials {
     list-style: none;
-    margin: 0;
+    margin: 26px 0 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.connect-links a {
-    display: flex;
+.connect-socials a {
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
-    padding: 20px 22px;
-    border-radius: 16px;
+    gap: 9px;
+    padding: 10px 16px;
+    border-radius: 999px;
     background: var(--card);
     border: 1px solid var(--line);
     box-shadow: var(--shadow-sm);
-    transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease),
-        border-color 0.28s var(--ease);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--ink);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+        border-color 0.25s var(--ease);
 }
 
-.connect-links a:hover {
-    transform: translateX(6px);
+.connect-socials a:hover {
+    transform: translateY(-3px);
     border-color: rgba(195, 31, 55, 0.35);
     box-shadow: var(--shadow-md);
 }
 
 .connect-icon {
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
     color: var(--crimson);
     flex-shrink: 0;
 }
 
-.connect-label {
-    font-weight: 650;
+/* ---------- Contact form ---------- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px;
+    border-radius: 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.field label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     color: var(--ink);
 }
 
-.connect-handle {
-    color: var(--ink-3);
-    font-size: 0.9rem;
-    margin-left: auto;
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--line-2);
+    background: var(--paper);
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease),
+        background 0.2s var(--ease);
 }
 
-.connect-arrow {
-    width: 18px;
-    height: 18px;
-    color: var(--ink-3);
-    transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+.field textarea {
+    resize: vertical;
+    min-height: 120px;
 }
 
-.connect-links a:hover .connect-arrow {
-    color: var(--crimson);
-    transform: translate(2px, -2px);
+/* Topic chips (selectable buttons backed by radios) */
+.chip-field {
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-inline-size: 0;
+}
+
+.chip-field legend {
+    padding: 0;
+    margin-bottom: 10px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+}
+
+.chip-field .optional {
+    color: var(--ink-3);
+    font-weight: 600;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.chip {
+    position: relative;
+    cursor: pointer;
+}
+
+.chip input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.chip span {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--line-2);
+    background: var(--paper);
+    color: var(--ink-2);
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: color 0.2s var(--ease), background 0.2s var(--ease),
+        border-color 0.2s var(--ease), box-shadow 0.2s var(--ease),
+        transform 0.2s var(--ease);
+}
+
+.chip:hover span {
+    border-color: rgba(195, 31, 55, 0.4);
+    color: var(--ink);
+    transform: translateY(-1px);
+}
+
+.chip input:checked + span {
+    color: #fff;
+    background: linear-gradient(135deg, var(--crimson), var(--crimson-700));
+    border-color: transparent;
+    box-shadow: 0 8px 18px rgba(195, 31, 55, 0.25);
+}
+
+.chip input:focus-visible + span {
+    outline: 3px solid rgba(195, 31, 55, 0.3);
+    outline-offset: 2px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: var(--ink-3);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--crimson);
+    background: var(--card);
+    box-shadow: 0 0 0 3px rgba(195, 31, 55, 0.14);
+}
+
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+    border-color: var(--crimson);
+}
+
+.field-error {
+    color: var(--crimson-700);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.form-error {
+    margin-top: -4px;
+}
+
+.contact-form .btn-primary {
+    margin-top: 6px;
+    align-self: flex-start;
+}
+
+.contact-form .btn-primary:disabled {
+    opacity: 0.65;
+    cursor: progress;
+    transform: none;
+}
+
+/* Honeypot — visually removed but still in the DOM for bots */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Success state */
+.contact-success {
+    align-items: flex-start;
+    gap: 14px;
+    justify-content: center;
+    text-align: left;
+}
+
+.success-badge {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    color: #fff;
+    background: #2fae66;
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-shadow: 0 10px 24px rgba(47, 174, 102, 0.3);
+}
+
+.contact-success h3 {
+    font-size: 1.4rem;
+}
+
+.contact-success a {
+    color: var(--crimson-700);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* Footer */

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import socials from '../data/socials.js'
 
 function Hero() {
     const [imgOk, setImgOk] = useState(true)
@@ -37,7 +36,11 @@ function Hero() {
                         >
                             View my work
                         </a>
-                        <a className="btn btn-ghost" href={`mailto:${socials.email}`}>
+                        <a
+                            className="btn btn-ghost"
+                            href="#connect"
+                            onClick={(e) => scrollTo(e, 'connect')}
+                        >
                             Get in touch
                         </a>
                     </div>
@@ -47,7 +50,7 @@ function Hero() {
                     <div className="portrait-frame">
                         {imgOk ? (
                             <img
-                                src="/profile.jpg"
+                                src="/monisha-portrait.jpg"
                                 alt="Monisha Natarajan"
                                 loading="eager"
                                 onError={() => setImgOk(false)}

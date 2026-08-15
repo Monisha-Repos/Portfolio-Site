@@ -4,8 +4,8 @@ function Availability() {
     const { time, available, location } = useClock()
 
     const label = available
-        ? `Usually online now — ${location} time ${time}`
-        : `Away right now — ${location} time ${time}`
+        ? `Usually online now — ${time}, ${location}`
+        : `Away right now — ${time}, ${location}`
 
     return (
         <div
