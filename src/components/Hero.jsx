@@ -1,8 +1,4 @@
-import { useState } from 'react'
-
 function Hero() {
-    const [imgOk, setImgOk] = useState(true)
-
     const scrollTo = (e, id) => {
         e.preventDefault()
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -48,18 +44,9 @@ function Hero() {
 
                 <div className="hero-portrait" data-reveal>
                     <div className="portrait-frame">
-                        {imgOk ? (
-                            <img
-                                src="/monisha-portrait.jpg"
-                                alt="Monisha Natarajan"
-                                loading="eager"
-                                onError={() => setImgOk(false)}
-                            />
-                        ) : (
-                            <div className="portrait-fallback" aria-label="Monisha Natarajan">
-                                <span>MN</span>
-                            </div>
-                        )}
+                        <div className="portrait-fallback" aria-label="Monisha Natarajan">
+                            <span>MN</span>
+                        </div>
                     </div>
                     <div className="portrait-glow" aria-hidden="true" />
                 </div>
